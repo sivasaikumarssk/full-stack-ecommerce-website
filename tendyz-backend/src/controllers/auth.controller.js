@@ -40,10 +40,10 @@ const login = async (req, res) => {
       return res.status(400).send({ errors: newErrors });
     }
     const user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(400).send({ message: "please try again" });
+    if (!user) return res.status(400).send({ message: "Email or password doesn't matched" });
     const match = user.checkPassword(req.body.password);
     if (!match) {
-      return res.status(400).send({ message: "please try again" });
+      return res.status(400).send({ message: "Email or password doesn't matched" });
     }
     const token = newToken(user);
     
