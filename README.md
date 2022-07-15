@@ -1,6 +1,4 @@
-
- !     tendyz/
- !     tendyz-backend/
+tendyz-backend/
 # full-stack-ecommerce-website
 
 build ecommerce application by react and  redux
