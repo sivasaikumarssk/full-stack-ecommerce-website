@@ -6,6 +6,7 @@ const userController = require("./controllers/user.controller");
 const productController = require("./controllers/product.controller")
 const app = express();
 const cors = require("cors");
+const cartController = require("./controllers/cart.controller")
 
 const corsOptions = {
   origin: '*',
@@ -17,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/products",productController)
 app.use("/users", userController);
-
+app.use("/carts",cartController);
 app.use("/register", cors(corsOptions),body("name").isString().isLength({min : 5}),body("email").isEmail(),
 body("password").isLength({min : 6})
 ,cors(corsOptions),  register)
